@@ -1,31 +1,55 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FaGoogle } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
+import { useDispatch, useSelector } from 'react-redux';
+import { PropagateLoader } from 'react-spinners'
+import { overrideStyle } from '../../utils/utils';
+import { seller_register, messageClear} from '../../store/Reducers/authReducer';
+import {toast} from 'react-hot-toast'
+
 const Register = () => {
 
-   const [state, setState] = useState({
-       
-      name : "",
-      email : "",
-      password : ""
+  const dispatch = useDispatch();
 
-   });
+  const { loader, successMessage, errorMessage } = useSelector(state => state.auth);
 
-   const inputHandle = (e) =>{
-       
-        setState({
-             ...state,
-             [e.target.name] : e.target.value,
-        })
-   } 
+  const [state, setState] = useState({
 
-   const submit = (e) =>{
-       e.preventDefault();
-       
-       console.log(state);
+    name: "",
+    email: "",
+    password: ""
 
-   }
+  });
+
+  const inputHandle = (e) => {
+
+    setState({
+      ...state,
+      [e.target.name]: e.target.value,
+    })
+  }
+
+  const submit = (e) => {
+    e.preventDefault();
+    dispatch(seller_register(state))
+  }
+
+  useEffect(() => {
+    if (errorMessage) {
+      toast.error(errorMessage)
+      dispatch(messageClear());
+    }
+
+    if (successMessage) {
+      toast.success(successMessage)
+      dispatch(messageClear());
+    }
+
+
+  }, [successMessage, errorMessage])
+
+
 
   return (
 
@@ -58,7 +82,13 @@ const Register = () => {
               <label htmlFor='checkbox'> I agree to privacy policy & terms</label>
             </div>
 
-            <button className='bg-slate-800 w-full hover:shadow-blue-300 hover:shadow-lg text-white rounded-md px-7 py-2 mb-3'>Sign Up</button>
+            <button disabled={loader ? true : false} className='bg-slate-800 w-full hover:shadow-blue-300 hover:shadow-lg text-white rounded-md px-7 py-2 mb-3'>
+
+              {
+                loader ? <PropagateLoader color='#fff' cssOverride={overrideStyle} /> : 'Sign Up'
+              }
+
+            </button>
 
             <div className='flex items-center mb-3 gap-3 justify-center'>
               <p>Already Have an account ? <Link className='font-bold' to="/login">Sign In</Link></p>
@@ -73,12 +103,12 @@ const Register = () => {
             </div>
 
             <div className='flex justify-center items-center gap-3'>
-               <div className='w-[135px] h-[35px] flex rounded-md bg-orange-700 shadow-lg hove:shadow-orange-700/50 justify-center cursor-pointer items-center overflow-hidden'>
-                 <span><FaGoogle /></span>
-               </div>
-               <div className='w-[135px] h-[35px] flex rounded-md bg-blue-700 shadow-lg hove:shadow-blue-700/50 justify-center cursor-pointer items-center overflow-hidden'>
-                 <span><FaFacebook /></span>
-               </div>
+              <div className='w-[135px] h-[35px] flex rounded-md bg-orange-700 shadow-lg hove:shadow-orange-700/50 justify-center cursor-pointer items-center overflow-hidden'>
+                <span><FaGoogle /></span>
+              </div>
+              <div className='w-[135px] h-[35px] flex rounded-md bg-blue-700 shadow-lg hove:shadow-blue-700/50 justify-center cursor-pointer items-center overflow-hidden'>
+                <span><FaFacebook /></span>
+              </div>
             </div>
 
           </form>

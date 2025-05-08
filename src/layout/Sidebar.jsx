@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { getNav } from '../navigation';
 import { RiLogoutCircleRLine } from "react-icons/ri";
 
-const Sidebar = () => {
+const Sidebar = ({showSidebar, setShowSidebar}) => {
 
 
   const {pathname} = useLocation()
@@ -12,7 +12,7 @@ const Sidebar = () => {
 
   useEffect (()=>{
 
-     const navs = getNav('admin')
+     const navs = getNav('seller')
 
      setAllNav(navs);
        
@@ -23,13 +23,15 @@ const Sidebar = () => {
   return (
     <div>
        
-        <div></div>
+        <div onClick={()=> setShowSidebar(false)} className={`fixed duration-200 ${!showSidebar ? 'invisible' : 'visible'} w-screen h-screen bg-[#8cbce780] top-0 left-0 z-10`}>
 
-        <div className={`w-[260px] fixed bg-[#e6e7fb] z-50 top-0 h-screen shadow-[0_0_15px_0_rgb(34_41_47_/_5%)] transition-all`}>
+        </div>
+
+        <div className={`w-[260px] fixed bg-[#e6e7fb] z-50 top-0 h-screen shadow-[0_0_15px_0_rgb(34_41_47_/_5%)] transition-all ${showSidebar ? 'left-0' : '-left-[260px] lg:left-0'}`}>
       
               <div className='h-[70px] flex justify-center items-center'>
                   <Link to={'/'} className='w-[180px] h-[50px]'>
-                       <img className='w-full h-full' src='http://localhost:3000/images/logo.png' />
+                       <img className='w-full h-full' src='http://localhost:3000/images/logo.png' alt='' />
                   </Link>
               </div>
 

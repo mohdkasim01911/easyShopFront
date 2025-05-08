@@ -57,12 +57,73 @@ export const allNav = [
       path: '/admin/dashboard/seller-request'
    },
    {
-      id: 7,
+      id: 8,
       title: 'Live Chat',
       icon: <IoIosChatbubbles />,
       role: 'admin',
-      path: '/admin/dashboard/chat-seller'
-   }
-
-
+      path: '/admin/dashboard/chat-sellers'
+   },
+   {
+      id: 9,
+      title: 'Dashboard',
+      icon: <AiOutlineDashboard />,
+      role: 'seller',
+      path: '/seller/dashboard'
+   },
+   {
+      id: 10,
+      title: 'Add Product',
+      icon: <AiOutlineDashboard />,
+      role: 'seller',
+      path: '/seller/dashboard/add-product'
+   },
+   {
+      id: 11,
+      title: 'All Product',
+      icon: <AiOutlineDashboard />,
+      role: 'seller',
+      path: '/seller/dashboard/all-products'
+   },
+   {
+      id: 12,
+      title: 'Discount Product',
+      icon: <AiOutlineDashboard />,
+      role: 'seller',
+      path: '/seller/dashboard/discount-product'
+   },
+   {
+      id: 13,
+      title: 'Orders',
+      icon: <AiOutlineDashboard />,
+      role: 'seller',
+      path: '/seller/dashboard/orders'
+   },
+   {
+      id: 14,
+      title: 'Payments',
+      icon: <AiOutlineDashboard />,
+      role: 'seller',
+      path: '/seller/dashboard/payments'
+   },
+   {
+      id: 15,
+      title: 'Chat Cuatomer',
+      icon: <AiOutlineDashboard />,
+      role: 'seller',
+      path: '/seller/dashboard/chat-customer'
+   },
+   {
+      id: 16,
+      title: 'Chat Support',
+      icon: <AiOutlineDashboard />,
+      role: 'seller',
+      path: '/seller/dashboard/chat-support'
+   },
+   {
+      id: 17,
+      title: 'Profile',
+      icon: <AiOutlineDashboard />,
+      role: 'seller',
+      path: '/seller/dashboard/profile'
+   },
 ]

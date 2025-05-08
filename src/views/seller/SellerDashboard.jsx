@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Chart from 'react-apexcharts'
 
 
-const AdminDashboard = () => {
+const SellerDashboard = () => {
 
   const state = {
     series: [
@@ -164,7 +164,7 @@ const AdminDashboard = () => {
                     <img className='w-full rounded-full h-full shadow-lg' src="http://localhost:3000/images/admin.jpg" alt="" /></div>
                   <div className='p-3 bg-slate-800 rounded-lg border border-slate-600 shadow-sm'>
                     <div className='flex justify-between items-center mb-2'>
-                      <Link className='text-md font-normal'>Admin</Link>
+                      <Link className='text-md font-normal'>Seller</Link>
                       <time className='mb-1 text-sm font-normal sm:order-last sm:mb-0'> 2 day ago</time>
                     </div>
                     <div className='p-2 text-xs font-normal bg-slate-700 rounded-lg border border-slate-800'>
@@ -179,7 +179,7 @@ const AdminDashboard = () => {
                     <img className='w-full rounded-full h-full shadow-lg' src="http://localhost:3000/images/admin.jpg" alt="" /></div>
                   <div className='p-3 bg-slate-800 rounded-lg border border-slate-600 shadow-sm'>
                     <div className='flex justify-between items-center mb-2'>
-                      <Link className='text-md font-normal'>Admin</Link>
+                      <Link className='text-md font-normal'>Customer</Link>
                       <time className='mb-1 text-sm font-normal sm:order-last sm:mb-0'> 2 day ago</time>
                     </div>
                     <div className='p-2 text-xs font-normal bg-slate-700 rounded-lg border border-slate-800'>
@@ -251,4 +251,4 @@ const AdminDashboard = () => {
   )
 }
 
-export default AdminDashboard
+export default SellerDashboard
