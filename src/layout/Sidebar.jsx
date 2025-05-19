@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { getNav } from '../navigation';
 import { RiLogoutCircleRLine } from "react-icons/ri";
+import { useDispatch, useSelector } from "react-redux";
 
 const Sidebar = ({showSidebar, setShowSidebar}) => {
 
+  const dispatch = useDispatch();
+  const { role } = useSelector(state => state.auth);
 
   const {pathname} = useLocation()
 
@@ -12,11 +15,11 @@ const Sidebar = ({showSidebar, setShowSidebar}) => {
 
   useEffect (()=>{
 
-     const navs = getNav('seller')
+     const navs = getNav(role)
 
      setAllNav(navs);
        
-  },[])
+  },[role])
    
   // console.log(allNav)
  
