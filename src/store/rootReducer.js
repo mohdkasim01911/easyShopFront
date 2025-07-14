@@ -1,8 +1,14 @@
 import { combineReducers } from "@reduxjs/toolkit";
 import authReducer from "./Reducers/authReducer";  // also fix the import!
+import  categoryReducer  from "./Reducers/categoryReducer";
+import productReducer  from "./Reducers/productReducer";
+import sellerReducer  from "./Reducers/sellerReducer";
 
 const rootReducer = combineReducers({
-    auth: authReducer
+    auth: authReducer,
+    category : categoryReducer,
+    product : productReducer,
+    product : sellerReducer
 });
 
 export default rootReducer;
