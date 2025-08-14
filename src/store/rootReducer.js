@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
     auth: authReducer,
     category : categoryReducer,
     product : productReducer,
-    product : sellerReducer
+    seller : sellerReducer
 });
 
 export default rootReducer;

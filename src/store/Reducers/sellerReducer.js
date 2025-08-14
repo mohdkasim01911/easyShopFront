@@ -3,11 +3,11 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import api from "../../api/api"
 
 
-export const get_category = createAsyncThunk(
-   'category/get_category',
+export const get_seller_request = createAsyncThunk(
+   'category/get_seller_request',
    async ({parPage, page, searchValue}, { rejectWithValue, fulfillWithValue }) => {
       try {
-         const { data } = await api.get(`/category-get?page=${page}&&searchValue=${searchValue}&&parPage=${parPage}`, { withCredentials: true })
+         const { data } = await api.get(`/request-seller-get?page=${page}&&searchValue=${searchValue}&&parPage=${parPage}`, { withCredentials: true })
          console.log(data)
          return fulfillWithValue(data);
       } catch (error) {
@@ -37,12 +37,12 @@ export const sellerReducer = createSlice({
    },
    extraReducers: (builder) => {
 
-    //   builder
+      builder
         
-        //  .addCase(get_category.fulfilled, (state, { payload }) => {
-        //     state.totalCategory = payload.totalCategory;
-        //     state.categorys = payload.category;
-        //  })
+         .addCase(get_seller_request.fulfilled, (state, { payload }) => {
+            state.totalSeller = payload.totalSeller;
+            state.sellers = payload.sellers;
+         })
    }
 })
 export const { messageClear } = sellerReducer.actions
